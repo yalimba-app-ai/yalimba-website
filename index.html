@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yalimba – Nachtleben auf der Karte</title>
+  <meta name="description" content="Yalimba ist die erste Map-first Event-App für Nachtleben. Entdecke Clubs, Live-Musik, Bars und Open-Air-Events direkt auf der Karte – kostenlos, ohne Werbung." />
+  <link rel="icon" href="favicon.png" />
+  <link rel="stylesheet" href="_shared.css" />
+  <style>
+    .home-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3d8a 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 24px 72px;
+    }
+    .home-hero .logo-img {
+      width: 72px; height: 72px;
+      border-radius: 18px;
+      margin: 0 auto 24px;
+      display: block;
+    }
+    .home-hero h1 {
+      font-size: clamp(36px, 7vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+    .home-hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 14px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .app-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 36px;
+      background: var(--white);
+      color: var(--navy);
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .app-store-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
+    .app-store-btn svg { flex-shrink: 0; }
+
+    .features {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+    .feature-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+    .feature-card p  { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    .section-title {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+    }
+    .section-title h2 { font-size: 28px; font-weight: 800; color: var(--navy); letter-spacing: -0.5px; }
+    .section-title p  { font-size: 16px; color: var(--gray); margin-top: 8px; }
+
+    .b2b-strip {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 56px 24px;
+    }
+    .b2b-strip h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+    .b2b-strip p  { font-size: 16px; color: rgba(255,255,255,0.75); margin-top: 10px; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .b2b-link {
+      display: inline-block;
+      margin-top: 28px;
+      background: var(--blue);
+      color: var(--white);
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .b2b-link:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="favicon.png" alt="Yalimba Logo" />
+        <span>Yalimba</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="home-hero">
+    <img src="favicon.png" alt="Yalimba" class="logo-img" />
+    <h1>Yalimba</h1>
+    <p>Nachtleben auf der Karte. Entdecke Events in deiner Nähe – ohne endlose Listen.</p>
+    <a href="https://apps.apple.com/app/yalimba/id[APP-ID]" class="app-store-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Im App Store herunterladen
+    </a>
+  </section>
+
+  <!-- FEATURES -->
+  <div class="section-title" style="padding-top: 64px;">
+    <h2>Warum Yalimba?</h2>
+    <p>Weniger scrollen. Mehr erleben.</p>
+  </div>
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#EEF2FF;">🗺️</div>
+      <h3>Karte statt Liste</h3>
+      <p>Sieh auf einen Blick, wo heute Abend etwas los ist – direkt auf der Karte, mit farbigen Pins pro Kategorie.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#F0FFF8;">📸</div>
+      <h3>Event teilen in Sekunden</h3>
+      <p>Flyer fotografieren, KI liest alles aus. Name, Ort, Datum – alles automatisch vorausgefüllt.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#FFF0F5;">✅</div>
+      <h3>Community-Bestätigungen</h3>
+      <p>Sieh, wie viele Personen bei einem Event dabei sind. Je mehr Bestätigungen, desto zuverlässiger die Info.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#EEF2FF;">🎟️</div>
+      <h3>Festivals & Open Air</h3>
+      <p>Events, die bei anderen Apps fehlen. Von Techno-Festivals bis Open-Air-Konzerte – alles auf einer Karte.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#F5F0FF;">🔒</div>
+      <h3>Kostenlos & werbefrei</h3>
+      <p>Yalimba ist für Nutzer immer kostenlos – ohne Werbung, ohne versteckte Kosten.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#FFF8EE;">🤖</div>
+      <h3>KI-Support</h3>
+      <p>Fragen zur App? Unser KI-Chatbot antwortet sofort. Bei komplexen Fällen springt echtes Support-Team ein.</p>
+    </div>
+  </div>
+
+  <!-- B2B STRIP -->
+  <section class="b2b-strip">
+    <h2>Du betreibst einen Club, eine Bar oder ein Festival?</h2>
+    <p>Mit einem verifizierten Business-Konto erreichst du genau die richtigen Leute – zur richtigen Zeit, am richtigen Ort.</p>
+    <a href="mailto:business@yalimba.app" class="b2b-link">Kontakt aufnehmen</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-name">
+          <img src="favicon.png" alt="Yalimba" />
+          Yalimba
+        </div>
+        <p>Nachtleben auf der Karte. Entdecke Events in deiner Nähe.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="agb.html">Allgemeine Geschäftsbedingungen</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:support@yalimba.app">support@yalimba.app</a></li>
+          <li><a href="mailto:business@yalimba.app">business@yalimba.app</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Yalimba. Alle Rechte vorbehalten.
+    </div>
+  </footer>
+
+</body>
+</html>
