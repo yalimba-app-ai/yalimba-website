@@ -1,201 +1,375 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Datenschutz – Yalimba</title>
-  <meta name="description" content="Datenschutzerklärung der Yalimba App." />
-  <link rel="icon" href="favicon.png" />
-  <link rel="stylesheet" href="_shared.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Datenschutz – Yalimba</title>
+<meta name="description" content="Datenschutzerklärung der Yalimba App." />
+<link rel="icon" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F6F7F9;
+  --white: #FFFFFF;
+  --text: #13161D;
+  --navy: #16306E;
+  --teal: #3DE0D5;
+  --teal-light: #F0FFFE;
+  --gray: #6B7280;
+  --border: #E5E7EB;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.2px;
+}
+.logo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+}
+.nav-links {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-links a:hover { background: var(--bg); color: var(--navy); }
+.nav-links a.active { background: var(--bg); color: var(--navy); font-weight: 600; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #16306E 0%, #1e4494 100%);
+  padding: 52px 24px 44px;
+}
+.hero-inner { max-width: 860px; margin: 0 auto; }
+.breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.breadcrumb a:hover { color: rgba(255,255,255,0.85); }
+.hero h1 {
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+.hero-meta {
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+}
+
+/* CONTENT */
+main {
+  flex: 1;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.intro {
+  background: var(--teal-light);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  color: #0D5A55;
+  line-height: 1.6;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 28px 32px;
+  margin-bottom: 16px;
+}
+.card h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: -0.1px;
+}
+.card p {
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+.card p:last-child { margin-bottom: 0; }
+.card ul, .card ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.card li {
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 7px;
+  line-height: 1.6;
+}
+.card strong { font-weight: 600; color: var(--text); }
+.card a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+.card a:hover { color: #3DE0D5; }
+
+/* FOOTER */
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 36px 24px;
+}
+.footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer-brand .brand-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.footer-brand .brand-name img { width: 22px; height: 22px; border-radius: 5px; }
+.footer-brand p { font-size: 13px; color: var(--gray); max-width: 210px; line-height: 1.5; }
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--gray);
+  margin-bottom: 10px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.footer-col a {
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-col a:hover { color: var(--navy); }
+.footer-bottom {
+  max-width: 860px;
+  margin: 20px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--gray);
+}
+
+@media (max-width: 600px) {
+  .card { padding: 20px; }
+  .nav-links { display: none; }
+  .footer-inner { flex-direction: column; gap: 20px; }
+}
+</style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="favicon.png" alt="Yalimba Logo" />
-        <span>Yalimba</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="datenschutz.html" class="active">Datenschutz</a></li>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="favicon.png" alt="Yalimba" />
+      Yalimba
+    </a>
+    <ul class="nav-links">
+      <li><a href="datenschutz.html" class="active">Datenschutz</a></li>
+      <li><a href="agb.html">AGB</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Startseite</a> › Datenschutz
+    </div>
+    <h1>Datenschutzerklärung</h1>
+    <p class="hero-meta">Stand: 14. Juni 2026 · Yalimba App</p>
+  </div>
+</div>
+
+<main>
+  <div class="intro">
+    Deine Privatsphäre ist uns wichtig. Diese Erklärung informiert dich darüber, welche Daten wir in der Yalimba App erheben, wie wir sie verwenden und welche Rechte du hast.
+  </div>
+
+  <div class="card">
+    <h2>1. Verantwortliche Stelle</h2>
+    <p>
+      <strong>Azra Arikan</strong><br>
+      Aldebaranstraße 3<br>
+      12529 Schönefeld<br>
+      Deutschland<br><br>
+      E-Mail: <a href="mailto:support@yalimba.app">support@yalimba.app</a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>2. Erhobene Daten und Zweck der Verarbeitung</h2>
+    <p>Wir erheben ausschließlich Daten, die für den Betrieb der App notwendig sind:</p>
+    <ul>
+      <li><strong>Konto-Daten:</strong> E-Mail-Adresse, Nutzername, Passwort (verschlüsselt)</li>
+      <li><strong>Handynummer:</strong> Nur zur einmaligen Verifizierung, wird danach nicht weiterverarbeitet</li>
+      <li><strong>Profilbild:</strong> Wird nur gespeichert, wenn du es freiwillig hochlädst</li>
+      <li><strong>Event-Inhalte:</strong> Bilder, Texte und Ortsangaben beim Teilen eines Events</li>
+      <li><strong>Interaktionsdaten:</strong> Bestätigte und gespeicherte Events</li>
+      <li><strong>Standortdaten:</strong> Nur wenn du die Freigabe aktiv erteilst</li>
+    </ul>
+    <p>Wir verkaufen deine Daten nicht. Wir schalten keine Werbung. Die App ist für Endnutzer dauerhaft kostenlos.</p>
+  </div>
+
+  <div class="card">
+    <h2>3. Rechtsgrundlage der Verarbeitung</h2>
+    <ul>
+      <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> – Vertragserfüllung (Bereitstellung der App-Funktionen)</li>
+      <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> – Einwilligung (z.&thinsp;B. Standort, Push-Benachrichtigungen)</li>
+      <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> – Berechtigte Interessen (Sicherheit und Betrieb der App)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Drittanbieter und Datenübermittlung</h2>
+    <ul>
+      <li><strong>Supabase Inc.</strong> – Datenbank, Authentifizierung und Dateispeicherung auf europäischen Servern (Frankfurt). <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></li>
+      <li><strong>Anthropic, PBC</strong> – KI-Verarbeitung von Flyer-Bildern (Textextraktion). Keine dauerhafte Speicherung der Bilddaten. <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a></li>
+      <li><strong>Apple Inc. / Google LLC</strong> – Optionaler Social Login. Dabei werden nur Name und E-Mail übermittelt.</li>
+      <li><strong>Google Maps Platform</strong> – Darstellung der Karte und Verortung von Events. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>5. Speicherdauer</h2>
+    <p>Deine Daten werden gespeichert, solange dein Konto aktiv ist. Nach der Konto-Löschung werden alle personenbezogenen Daten innerhalb von 30 Tagen unwiderruflich gelöscht.</p>
+  </div>
+
+  <div class="card">
+    <h2>6. Deine Rechte</h2>
+    <ul>
+      <li><strong>Auskunft</strong> (Art. 15 DSGVO) – Welche Daten wir über dich gespeichert haben</li>
+      <li><strong>Berichtigung</strong> (Art. 16 DSGVO) – Korrektur unrichtiger Daten</li>
+      <li><strong>Löschung</strong> (Art. 17 DSGVO) – Konto löschen direkt in der App möglich</li>
+      <li><strong>Einschränkung</strong> (Art. 18 DSGVO)</li>
+      <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO) – Export auf Anfrage</li>
+      <li><strong>Widerspruch</strong> (Art. 21 DSGVO)</li>
+    </ul>
+    <p>Zur Ausübung deiner Rechte: <a href="mailto:support@yalimba.app">support@yalimba.app</a></p>
+  </div>
+
+  <div class="card">
+    <h2>7. Konto löschen</h2>
+    <p>Du kannst dein Konto jederzeit direkt in der App löschen: <strong>Profil → Einstellungen → Konto löschen</strong>. Alle personenbezogenen Daten werden dabei vollständig und dauerhaft entfernt.</p>
+  </div>
+
+  <div class="card">
+    <h2>8. Sicherheit</h2>
+    <p>Wir verwenden verschlüsselte Übertragung (HTTPS/TLS), verschlüsselte Passwort-Speicherung und rollenbasierte Zugriffskontrollen auf Datenbankebene.</p>
+  </div>
+
+  <div class="card">
+    <h2>9. Änderungen dieser Datenschutzerklärung</h2>
+    <p>Wir behalten uns vor, diese Erklärung zu aktualisieren. Das Datum „Stand" oben zeigt stets die aktuelle Version. Bei wesentlichen Änderungen informieren wir dich in der App.</p>
+  </div>
+
+  <div class="card">
+    <h2>10. Kontakt</h2>
+    <p><a href="mailto:support@yalimba.app">support@yalimba.app</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">
+        <img src="favicon.png" alt="Yalimba" />
+        Yalimba
+      </div>
+      <p>Nachtleben auf der Karte.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
         <li><a href="agb.html">AGB</a></li>
         <li><a href="impressum.html">Impressum</a></li>
       </ul>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-inner">
-      <div class="hero-breadcrumb">
-        <a href="index.html">Startseite</a>
-        <span>›</span>
-        Datenschutz
-      </div>
-      <h1>Datenschutzerklärung</h1>
-      <p class="hero-meta">Stand: 14. Juni 2026 &nbsp;·&nbsp; Yalimba App</p>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="mailto:support@yalimba.app">support@yalimba.app</a></li>
+        <li><a href="mailto:business@yalimba.app">business@yalimba.app</a></li>
+      </ul>
     </div>
   </div>
-
-  <!-- CONTENT -->
-  <main>
-    <div class="intro-box">
-      Deine Privatsphäre ist uns wichtig. Diese Erklärung informiert dich darüber, welche Daten wir
-      in der Yalimba App erheben, wie wir sie verwenden und welche Rechte du hast.
-    </div>
-
-    <div class="legal-section">
-      <h2>1. Verantwortliche Stelle</h2>
-      <p>
-        <strong>Azra Arikan</strong><br />
-        Aldebaranstraße 3<br />
-        12529 Schönefeld<br />
-        Deutschland<br /><br />
-        E-Mail: <a href="mailto:support@yalimba.app">support@yalimba.app</a>
-      </p>
-    </div>
-
-    <div class="legal-section">
-      <h2>2. Erhobene Daten und Zweck der Verarbeitung</h2>
-      <p>Wir erheben ausschließlich Daten, die für den Betrieb der App notwendig sind:</p>
-      <ul>
-        <li><strong>Konto-Daten:</strong> E-Mail-Adresse, Nutzername, Passwort (verschlüsselt gespeichert)</li>
-        <li><strong>Handynummer:</strong> Nur zur einmaligen Verifizierung des Kontos, wird danach nicht weiterverarbeitet</li>
-        <li><strong>Profilbild:</strong> Wird nur gespeichert, wenn du es freiwillig hochlädst</li>
-        <li><strong>Event-Inhalte:</strong> Bilder, Texte und Ortsangaben, die du beim Teilen eines Events hochlädst</li>
-        <li><strong>Interaktionsdaten:</strong> Welche Events du bestätigt oder gespeichert hast</li>
-        <li><strong>Standortdaten:</strong> Nur wenn du die Standortfreigabe aktiv erteilst, zur Anzeige von Events in deiner Nähe</li>
-      </ul>
-      <p>Wir verkaufen deine Daten nicht. Wir schalten keine Werbung. Die Nutzung der App ist für Endnutzer dauerhaft kostenlos.</p>
-    </div>
-
-    <div class="legal-section">
-      <h2>3. Rechtsgrundlage der Verarbeitung</h2>
-      <p>Die Verarbeitung deiner Daten erfolgt auf Basis von:</p>
-      <ul>
-        <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> – Vertragserfüllung (Bereitstellung der App-Funktionen)</li>
-        <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> – Einwilligung (z.&thinsp;B. bei Standortdaten oder Push-Benachrichtigungen)</li>
-        <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> – Berechtigte Interessen (Sicherheit und Betrieb der App)</li>
-      </ul>
-    </div>
-
-    <div class="legal-section">
-      <h2>4. Drittanbieter und Datenübermittlung</h2>
-      <p>Wir nutzen folgende Drittanbieter-Dienste, an die im Rahmen der Verarbeitung Daten übermittelt werden können:</p>
-      <ul>
-        <li>
-          <strong>Supabase Inc.</strong> (USA) – Datenbank, Authentifizierung und Dateispeicherung.
-          Supabase verarbeitet Daten auf europäischen Servern (Frankfurt). Weitere Infos:
-          <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a>
-        </li>
-        <li>
-          <strong>Anthropic, PBC</strong> (USA) – KI-Verarbeitung von hochgeladenen Flyer-Bildern
-          (Textextraktion). Keine dauerhafte Speicherung der Bilddaten bei Anthropic.
-          Weitere Infos: <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a>
-        </li>
-        <li>
-          <strong>Apple Inc. / Google LLC</strong> – Optionaler Social Login ("Mit Apple/Google anmelden").
-          Dabei werden nur Name und E-Mail-Adresse übermittelt.
-        </li>
-        <li>
-          <strong>Google Maps Platform</strong> – Zur Darstellung der Karte und Verortung von Events.
-          Datenschutzinfos: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="legal-section">
-      <h2>5. Speicherdauer</h2>
-      <p>
-        Deine Daten werden gespeichert, solange dein Konto aktiv ist. Nach der Konto-Löschung werden
-        alle personenbezogenen Daten innerhalb von 30 Tagen unwiderruflich gelöscht.
-        Events, die du geteilt hast, können auf deinen Wunsch hin ebenfalls gelöscht werden.
-      </p>
-    </div>
-
-    <div class="legal-section">
-      <h2>6. Deine Rechte</h2>
-      <p>Gemäß DSGVO hast du folgende Rechte:</p>
-      <ul>
-        <li><strong>Auskunft</strong> (Art. 15 DSGVO) – Welche Daten wir über dich gespeichert haben</li>
-        <li><strong>Berichtigung</strong> (Art. 16 DSGVO) – Korrektur unrichtiger Daten</li>
-        <li><strong>Löschung</strong> (Art. 17 DSGVO) – Konto und alle Daten löschen, direkt in der App möglich</li>
-        <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
-        <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO) – Export deiner Daten auf Anfrage</li>
-        <li><strong>Widerspruch</strong> (Art. 21 DSGVO) – Gegen die Verarbeitung auf Basis berechtigter Interessen</li>
-      </ul>
-      <p>
-        Zur Ausübung deiner Rechte wende dich an: <a href="mailto:support@yalimba.app">support@yalimba.app</a><br />
-        Du hast außerdem das Recht, dich bei der zuständigen Datenschutzaufsichtsbehörde zu beschweren.
-      </p>
-    </div>
-
-    <div class="legal-section">
-      <h2>7. Konto löschen</h2>
-      <p>
-        Du kannst dein Konto jederzeit direkt in der App löschen: <strong>Profil → Einstellungen → Konto löschen</strong>.
-        Alle personenbezogenen Daten werden dabei vollständig und dauerhaft gelöscht.
-      </p>
-    </div>
-
-    <div class="legal-section">
-      <h2>8. Sicherheit</h2>
-      <p>
-        Wir verwenden branchenübliche Sicherheitsmaßnahmen zum Schutz deiner Daten, darunter
-        verschlüsselte Übertragung (HTTPS/TLS), verschlüsselte Passwort-Speicherung und
-        rollenbasierte Zugriffskontrollen auf Datenbankebene.
-      </p>
-    </div>
-
-    <div class="legal-section">
-      <h2>9. Änderungen dieser Datenschutzerklärung</h2>
-      <p>
-        Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, etwa bei neuen Funktionen
-        oder geänderten gesetzlichen Anforderungen. Das Datum "Stand" oben auf dieser Seite zeigt
-        stets die aktuellste Version an. Bei wesentlichen Änderungen informieren wir dich in der App.
-      </p>
-    </div>
-
-    <div class="legal-section">
-      <h2>10. Kontakt bei Datenschutzfragen</h2>
-      <p>
-        Bei Fragen zum Datenschutz oder zur Ausübung deiner Rechte:<br />
-        <a href="mailto:support@yalimba.app">support@yalimba.app</a>
-      </p>
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="brand-name">
-          <img src="favicon.png" alt="Yalimba" />
-          Yalimba
-        </div>
-        <p>Nachtleben auf der Karte. Entdecke Events in deiner Nähe.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Rechtliches</h4>
-        <ul>
-          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
-          <li><a href="agb.html">Allgemeine Geschäftsbedingungen</a></li>
-          <li><a href="impressum.html">Impressum</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="mailto:support@yalimba.app">support@yalimba.app</a></li>
-          <li><a href="mailto:business@yalimba.app">business@yalimba.app</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2025 Yalimba. Alle Rechte vorbehalten.
-    </div>
-  </footer>
+  <div class="footer-bottom">&copy; 2026 Yalimba. Alle Rechte vorbehalten.</div>
+</footer>
 
 </body>
 </html>
